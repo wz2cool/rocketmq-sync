@@ -1,11 +1,15 @@
 package com.github.wz2cool.rocketmqsync.service;
 
-import org.apache.rocketmq.client.exception.MQClientException;
-import org.apache.rocketmq.remoting.exception.RemotingException;
+import org.apache.rocketmq.common.admin.TopicStatsTable;
+import org.apache.rocketmq.common.protocol.route.TopicRouteData;
 
 import java.util.List;
 
 public interface TopicService {
 
-    List<String> listAllTopics() throws RemotingException, MQClientException, InterruptedException;
+    List<String> listAllTopics();
+
+    TopicStatsTable stats(String topic);
+
+    TopicRouteData route(String topic);
 }
